@@ -24,7 +24,7 @@ func (t Tensor) String() string {
 	// Print the data
 	for i := 0; i < len(t.Data); i++ {
 		fmt.Fprintf(&s, "%v ", t.Data[i])
-		if ((i + 1) % t.Shape[len(t.Shape)-1].(int)) == 0 {
+		if ((i + 1) % t.Shape[len(t.Shape)-1]) == 0 {
 			fmt.Fprintln(&s)
 		}
 	}
