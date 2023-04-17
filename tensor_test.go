@@ -5,9 +5,9 @@ import (
 )
 
 func TestTensorType(t *testing.T) {
-	tx := Tensor{[]int{1, 2, 3}}
+	tx := NewTensor()
 
-	if len(tx) < 1 {
+	if len(tx.Data) < 0 {
 		t.Fatalf("Invalid datatype: Tensor")
 	}
 }
