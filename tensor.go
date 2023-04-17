@@ -11,8 +11,8 @@ type Tensor struct {
 	Shape []int
 }
 
-func NewTensor() Tensor {
-	return Tensor{}
+func NewTensor(data []interface{}, shape []int) Tensor {
+	return Tensor{Data: data, Shape: shape}
 }
 
 func (t Tensor) String() string {
