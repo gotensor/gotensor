@@ -8,7 +8,7 @@ import (
 // Tensor datastructor base model
 type Tensor struct {
 	Data  []interface{}
-	Shape []interface{}
+	Shape []int
 }
 
 func NewTensor() Tensor {
