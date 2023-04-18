@@ -17,3 +17,14 @@ func TestTensorType(t *testing.T) {
 		t.Fatalf("Invalid datatype: Tensor")
 	}
 }
+
+func TestTensorGet(t *testing.T) {
+	tx := NewTensor([]interface{}{2, 4, 8, 16, 32, 64, 32, 16, 8, 4, 2}, []int{3, 3, 3})
+	v, err := tx.Get(0, 0, 2)
+	if err != nil {
+		t.Fatalf("%v\n", err)
+	}
+	if v != 8 {
+		t.Fatalf("Invalid value")
+	}
+}
