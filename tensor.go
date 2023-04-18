@@ -6,17 +6,21 @@ import (
 	"strings"
 )
 
-// Tensor datastructor base model
+// Tensor represents a multidimensional array of values.
 type Tensor struct {
-	Data  []interface{}
+	// Data holds the tensor values.
+	Data []interface{}
+
+	// Shape holds the tensor dimensions.
 	Shape []int
 }
 
+// NewTensor creates a new tensor with the given data and shape.
 func NewTensor(data []interface{}, shape []int) Tensor {
 	return Tensor{Data: data, Shape: shape}
 }
 
-// Zeros
+// Zeros creates a new tensor initialized with zeros of the given shape.
 func Zeros(shape []int) Tensor {
 	tx := Tensor{Shape: shape}
 	tx.Data = make([]interface{}, tx.Len())
@@ -26,7 +30,7 @@ func Zeros(shape []int) Tensor {
 	return tx
 }
 
-// Ones
+// Ones creates a new tensor initialized with ones of the given shape.
 func Ones(shape []int) Tensor {
 	tx := Tensor{Shape: shape}
 	tx.Data = make([]interface{}, tx.Len())
@@ -36,6 +40,7 @@ func Ones(shape []int) Tensor {
 	return tx
 }
 
+// String returns a string representation of the tensor.
 func (t Tensor) String() string {
 	var s strings.Builder
 
@@ -53,7 +58,7 @@ func (t Tensor) String() string {
 	return s.String()
 }
 
-// Length of tensor
+// Len returns the total number of elements in the tensor.
 func (t *Tensor) Len() int {
 	if len(t.Shape) > 0 {
 		l := 1
@@ -66,7 +71,8 @@ func (t *Tensor) Len() int {
 	}
 }
 
-// Get single value
+// Get retrieves a single value from the tensor given the indices specified.
+// It returns an error if the indices provided are out of bounds.
 func (t *Tensor) Get(indices ...int) (interface{}, error) {
 	if len(indices) != len(t.Shape) {
 		return 0, errors.New("Index dimensions do not match tensor shape")
@@ -83,7 +89,8 @@ func (t *Tensor) Get(indices ...int) (interface{}, error) {
 	return t.Data[index], nil
 }
 
-// Set single value
+// Set sets a single value in the tensor given the value to set and the indices specified.
+// It returns an error if the indices provided are out of bounds.
 func (t *Tensor) Set(value interface{}, indices ...int) error {
 	if len(indices) != len(t.Shape) {
 		return errors.New("Index dimensions do not match tensor shape")
