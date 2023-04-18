@@ -1,6 +1,6 @@
 # gotensor
 
-[![Build status](https://github.com/gotensor/gotensor/workflows/test/badge.svg)](https://github.com/gotensor/gotensor)
+[![Build status](https://github.com/gotensor/gotensor/actions/workflows/test.yml/badge.svg)](https://github.com/gotensor/gotensor)
 [![go.dev reference](https://pkg.go.dev/badge/github.com/gotensor/gotensor)](https://pkg.go.dev/github.com/gotensor/gotensor)
 [![Go Report Card](https://goreportcard.com/badge/github.com/gotensor/gotensor)](https://goreportcard.com/report/github.com/gotensor/gotensor)
 
