@@ -17,7 +17,10 @@ type Tensor struct {
 
 // NewTensor creates a new tensor with the given data and shape.
 func NewTensor(data []interface{}, shape []int) Tensor {
-	return Tensor{Data: data, Shape: shape}
+	tx := Tensor{Shape: shape}
+	tx.Data = make([]interface{}, tx.Len())
+	tx.Data = data
+	return tx
 }
 
 // Zeros creates a new tensor initialized with zeros of the given shape.
