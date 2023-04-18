@@ -16,6 +16,16 @@ func NewTensor(data []interface{}, shape []int) Tensor {
 	return Tensor{Data: data, Shape: shape}
 }
 
+// Zeros
+func Zeros(shape []int) Tensor {
+	tx := Tensor{Shape: shape}
+	tx.Data = make([]interface{}, tx.Len())
+	for i := 0; i < tx.Len(); i++ {
+		tx.Data[i] = 0
+	}
+	return tx
+}
+
 func (t Tensor) String() string {
 	var s strings.Builder
 
