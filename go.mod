@@ -1,3 +1,3 @@
-module github.com/dariubs/tensor
+module github.com/gotensor/gotensor
 
 go 1.19

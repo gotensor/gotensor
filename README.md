@@ -1,11 +1,11 @@
-# tensor
+# gotensor
 
 tensor package for golang
 
 ## Install
 
 ```
-go get -u github.com/dariubs/tensor
+go get -u github.com/gotensor/gotensor
 ```
 
 ## How to use
