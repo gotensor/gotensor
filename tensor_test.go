@@ -63,3 +63,14 @@ func TestTensorZeros(t *testing.T) {
 		t.Fatalf("Value must be zero")
 	}
 }
+
+func TestTensorOnes(t *testing.T) {
+	tx := Ones([]int{3, 4, 5, 6})
+	v, err := tx.Get(2, 2, 2, 2)
+	if err != nil {
+		t.Fatalf("%v\n", err)
+	}
+	if v != 1 {
+		t.Fatalf("Value must be one")
+	}
+}

@@ -26,6 +26,16 @@ func Zeros(shape []int) Tensor {
 	return tx
 }
 
+// Ones
+func Ones(shape []int) Tensor {
+	tx := Tensor{Shape: shape}
+	tx.Data = make([]interface{}, tx.Len())
+	for i := 0; i < tx.Len(); i++ {
+		tx.Data[i] = 1
+	}
+	return tx
+}
+
 func (t Tensor) String() string {
 	var s strings.Builder
 
