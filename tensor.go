@@ -49,3 +49,21 @@ func (t *Tensor) Get(indices ...int) (interface{}, error) {
 	}
 	return t.Data[index], nil
 }
+
+// Set single value
+func (t *Tensor) Set(value interface{}, indices ...int) error {
+	if len(indices) != len(t.Shape) {
+		return errors.New("Index dimensions do not match tensor shape")
+	}
+	index := 0
+	stride := 1
+	for i := len(t.Shape) - 1; i >= 0; i-- {
+		if indices[i] >= t.Shape[i] || indices[i] < 0 {
+			return errors.New("Index out of range")
+		}
+		index += indices[i] * stride
+		stride *= t.Shape[i]
+	}
+	t.Data[index] = value
+	return nil
+}

@@ -28,3 +28,19 @@ func TestTensorGet(t *testing.T) {
 		t.Fatalf("Invalid value")
 	}
 }
+
+func TestTensorSet(t *testing.T) {
+	tx := NewTensor([]interface{}{2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}, []int{3, 3, 3})
+	err := tx.Set(4, 0, 0, 0)
+	if err != nil {
+		t.Fatalf("%v\n", err)
+	}
+	v, err := tx.Get(0, 0, 0)
+	if err != nil {
+		t.Fatalf("%v\n", err)
+	}
+	if v != 4 {
+		t.Fatalf("Invalid value")
+	}
+
+}
