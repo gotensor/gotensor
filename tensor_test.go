@@ -44,3 +44,11 @@ func TestTensorSet(t *testing.T) {
 	}
 
 }
+
+func TestTensorLen(t *testing.T) {
+	tx := NewTensor([]interface{}{2, 2, 2, 2, 2, 2, 2, 2, 2}, []int{3, 5, 3, 4})
+	l := tx.Len()
+	if l != 180 {
+		t.Fatalf("invalid length")
+	}
+}

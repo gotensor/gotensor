@@ -33,6 +33,19 @@ func (t Tensor) String() string {
 	return s.String()
 }
 
+// Length of tensor
+func (t *Tensor) Len() int {
+	if len(t.Shape) > 0 {
+		l := 1
+		for _, v := range t.Shape {
+			l *= v
+		}
+		return l
+	} else {
+		return 0
+	}
+}
+
 // Get single value
 func (t *Tensor) Get(indices ...int) (interface{}, error) {
 	if len(indices) != len(t.Shape) {
