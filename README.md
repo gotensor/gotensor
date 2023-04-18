@@ -79,3 +79,6 @@ fmt.Println(tx)
 
 ```
 
+## License
+
+MIT
