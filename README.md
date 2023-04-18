@@ -2,8 +2,80 @@
 
 tensor package for golang
 
-## install
+## Install
 
 ```
 go get -u github.com/dariubs/tensor
 ```
+
+## How to use
+
+Creating a new tensor:
+
+```go
+data := []interface{}{1, 2, 3, 4, 5, 6}
+shape := []int{2, 3}
+tx := tensor.NewTensor(data, shape)
+
+fmt.Println(tx)
+// Shape: [2 3]
+// 1 2 3
+// 4 5 6
+
+```
+
+Creating a tensor with all zeros:
+
+```go
+shape := []int{3, 3}
+tx := tensor.Zeros(shape)
+
+fmt.Println(tx)
+// Shape: [3 3]
+// 0 0 0
+// 0 0 0
+// 0 0 0
+```
+
+Creating a tensor with all ones:
+
+```go
+shape := []int{2, 2}
+tx := tensor.Ones(shape)
+
+fmt.Println(tx)
+// Shape: [2 2]
+// 1 1
+// 1 1
+```
+
+Getting a single value from the tensor:
+
+```go
+data := []interface{}{1, 2, 3, 4, 5, 6}
+shape := []int{2, 3}
+tx := tensor.NewTensor(data, shape)
+value, err := tx.Get(0, 1)
+if err != nil {
+    fmt.Println(err)
+}
+fmt.Println(value) // output: 2
+```
+
+Setting a single value in the tensor:
+
+```go
+data := []interface{}{1, 2, 3, 4, 5, 6}
+shape := []int{2, 3}
+tx := tensor.NewTensor(data, shape)
+err := tx.Set(7, 1, 2)
+if err != nil {
+    fmt.Println(err)
+}
+fmt.Println(tx)
+// Shape: [2 3]
+// 1 2 3
+// 4 5 7
+
+```
+
